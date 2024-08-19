@@ -1,10 +1,11 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Hello world!' });
+app.get('/', (req: Request, res: Response) => {
+  const { message } = req.query;
+  res.json({ message: message });
 });
 
 app.listen(port, () => {
